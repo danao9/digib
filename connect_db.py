@@ -1,15 +1,15 @@
 import pymysql
+import pandas as pd
 
 
 def main():
-    #fetch_from_db()
+    # fetch_from_db()
     insert_into_db()
 
 
 def fetch_from_db():
-
     # connect to database
-    db = pymysql.connect("35.190.197.53", "root", "public16", "digib")
+    db = pymysql.connect(host="localhost", port=3406, user="root", passwd="public16", db="digib")
 
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
@@ -22,27 +22,32 @@ def fetch_from_db():
     # disconnect from server now
     db.close()
 
+
 def insert_into_db():
-
     # connect to database
-    db = pymysql.connect("35.190.197.53", "root", "public16", "digib")
-
-    # execute SQL query using execute() method.
-    sql = """ INSERT INTO test (product, sales)
-        VALUES ("solution",65), ("conditioner",78) """
+    db = pymysql.connect(host="localhost", port=3406, user="root", passwd="public16", db="digib")
 
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
 
-    try:
-        # Execute the SQL command
-        cursor.execute(sql)
-        # Commit your changes in the database
-        db.commit()
+    # execute SQL query using execute() method
 
-    except:
-        # Rollback in case there is any error
-        db.rollback()
+    # Create dataframe
+    data = pd.DataFrame({
+        'product': ['acid', 'growth formulas', 'cosmetics'],
+        'sales': [29, 23, 27]
+    })
+
+    cols = "`,`".join([str(i) for i in data.columns.tolist()])
+    for i, row in data.iterrows():
+        try:
+            sql_auto = "INSERT INTO `test` (`" + cols + "`) VALUES (" + "%s," * (len(row) - 1) + "%s)"
+            cursor.execute(sql_auto, tuple(row))
+            db.commit()
+
+        except Exception as e:
+            print(e)
+            db.rollback()
 
     # disconnect from server now
     db.close()
