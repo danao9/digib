@@ -25,5 +25,6 @@ if __name__ == "__main__":
         # Rollback in case there is any error
         db.rollback()
 
-    # disconnect from server
+    # disconnect from server now
     db.close()
+
