@@ -1,0 +1,25 @@
+Case study: “You have been tasked with creating the Marketing dashboard for brenntagconnect.com. We would like you to:
+1) Create one dashboard with the most relevant KPIs per your judgement
+2) Create a dummy consumer behavior dashboard- What data sources would you use to create this dashboard”
+
+
+Marketing dashboard:
+
+# check for webscraping : https://brenntagconnect.com/robots.txt
+
+Dashboard: vistist total, cost per click, engagement rate, impressions, product sales trend, revenue by channel
+
+- shopping habits (products, their path to the cart, how much time they spend online, adding to wishlist, 
+promo codes they are using, how much they spend on average,)
+-lead aquisition
+- customer retention
+
+
+KPIs:
+https://www.lintao-dashboards.com/top-4-kpis-in-customers-behavior/
+https://lumoa.me/blog/customer-experience-metrics-and-kpis
+- net promoter score: loya customers
+- CRR customer retention rate
+- customer lifetime value 
+- customer profitability score  (customer segments and related profitability -> invest in most profitable customers)
+- customer satisfaction 
