@@ -2,6 +2,8 @@ Case study: “You have been tasked with creating the Marketing dashboard for br
 1) Create one dashboard with the most relevant KPIs per your judgement
 2) Create a dummy consumer behavior dashboard- What data sources would you use to create this dashboard”
 
+Start proxy: ./cloud_sql_proxy -instances=rosy-gantry-259210:europe-west1:digib-database=tcp:3406 &
+
 
 Marketing dashboard:
 
