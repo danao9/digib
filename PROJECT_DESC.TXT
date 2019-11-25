@@ -20,7 +20,7 @@ promo codes they are using, how much they spend on average,)
 KPIs:
 https://www.lintao-dashboards.com/top-4-kpis-in-customers-behavior/
 https://lumoa.me/blog/customer-experience-metrics-and-kpis
-- net promoter score: loya customers
+- net promoter score: loyal customers
 - CRR customer retention rate
 - customer lifetime value 
 - customer profitability score  (customer segments and related profitability -> invest in most profitable customers)

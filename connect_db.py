@@ -33,24 +33,24 @@ def insert_into_db():
     # execute SQL query using execute() method
 
     # Create dataframe
-    data = pd.DataFrame({
-        'product': ['acid', 'growth formulas', 'cosmetics'],
-        'sales': [29, 23, 27]
-    })
-
-    cols = "`,`".join([str(i) for i in data.columns.tolist()])
-    for i, row in data.iterrows():
-        try:
-            sql_auto = "INSERT INTO `test` (`" + cols + "`) VALUES (" + "%s," * (len(row) - 1) + "%s)"
-            cursor.execute(sql_auto, tuple(row))
-            db.commit()
-
-        except Exception as e:
-            print(e)
-            db.rollback()
+    # data = pd.DataFrame({
+    #     'product': ['acid', 'growth formulas', 'cosmetics'],
+    #     'sales': [29, 23, 27]
+    # })
+    def load_data():
+        cols = "`,`".join([str(i) for i in data.columns.tolist()])
+        for i, row in data.iterrows():
+            try:
+                sql_auto = "INSERT INTO `test` (`" + cols + "`) VALUES (" + "%s," * (len(row) - 1) + "%s)"
+                cursor.execute(sql_auto, tuple(row))
+                db.commit()
+            except Exception as e:
+                print(e)
+                db.rollback()
 
     # disconnect from server now
     db.close()
+
 
 
 if __name__ == "__main__":
